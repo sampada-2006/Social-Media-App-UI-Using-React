@@ -1,16 +1,142 @@
-# React + Vite
+# 🌐 Social Media App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple social media application built with **React** that demonstrates state management using **Context API** and **useReducer**. Users can view posts, create new posts, and delete existing posts.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- 📝 Create new posts
+- 🗑️ Delete posts
+- ❤️ Display reactions count
+- 🏷️ Add hashtags/tags to posts
+- ⚡ Global state management using Context API
+- 🔄 State updates handled with useReducer
+- 📱 Responsive UI using Bootstrap
+- ⚛️ Built with reusable React components
 
-The React Compiler is not enabled on this template because of its impact on dev & build perHtmlForances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) htmlHtmlFor inHtmlForation on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- JavaScript (ES6+)
+- Context API
+- useReducer Hook
+- Bootstrap
+- React Icons
+- Vite
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│
+├── components/
+│   ├── Header.jsx
+│   ├── Sidebar.jsx
+│   ├── Post.jsx
+│   ├── PostList.jsx
+│   ├── CreatePost.jsx
+│   └── Footer.jsx
+│
+├── store/
+│   └── post-list-store.jsx
+│
+├── App.jsx
+├── main.jsx
+└── App.css
+```
+
+---
+
+## 📸 Features Demonstrated
+
+- Component-based architecture
+- Props
+- Conditional Rendering
+- Event Handling
+- Forms
+- React Hooks
+  - useState
+  - useContext
+  - useReducer
+- Context API
+- State Management
+- List Rendering
+- Bootstrap Integration
+
+---
+
+## ▶️ Getting Started
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Navigate to the project
+
+```bash
+cd social-media-app
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+Open your browser at
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🎯 Learning Objectives
+
+This project was built to practice:
+
+- React fundamentals
+- Context API
+- useReducer
+- Component communication
+- Managing global state
+- Responsive UI development
+
+---
+
+## 📌 Future Improvements
+
+- 🔐 User Authentication
+- 🌙 Dark Mode
+- ❤️ Like & Comment functionality
+- ✏️ Edit Posts
+- 📡 Backend Integration
+- 💾 Database Support
+- 🔍 Search Posts
+- 👥 User Profiles
+- 📷 Image Uploads
+
+---
+
+## 👩‍💻 Author
+
+**Sampada**
+
+Computer Science Engineering Student | React Learner | Competitive Programmer
+
+---
+
+⭐ If you like this project, don't forget to give it a star!

@@ -1,9 +1,15 @@
-import { createContext, useCallback, useReducer } from "react";
+import {
+  createContext,
+  useCallback,
+  useReducer,
+  useEffect,
+  useState,
+} from "react";
 
 const DEFAULT_CONTEXT = {
   postList: [],
+  fetching: false,
   addPost: () => {},
-  addInitialPost: () => {},
   deletePost: () => {},
 };
 export const PostList = createContext(DEFAULT_CONTEXT);
@@ -25,17 +31,13 @@ const postListReducer = (currPostList, action) => {
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
-  const addPost = (userId, postTitle, postBody, reactions, tags) => {
+
+  const [fetching, setFetching] = useState(false);
+
+  const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id: Date.now(),
-        title: postTitle,
-        body: postBody,
-        reactions: { likes: reactions },
-        userId: userId,
-        tags: tags,
-      },
+      payload: post,
     });
   };
 
@@ -59,10 +61,26 @@ const PostListProvider = ({ children }) => {
     },
     [dispatchPostList],
   );
+
+  useEffect(() => {
+    setFetching(true);
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetch("https://dummyjson.com/posts", { signal })
+      .then((res) => res.json())
+      .then((data) => {
+        addInitialPost(data.posts);
+        setFetching(false);
+      });
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
   return (
-    <PostList.Provider
-      value={{ postList, addPost, addInitialPost, deletePost }}
-    >
+    <PostList.Provider value={{ postList, fetching, addPost, deletePost }}>
       {children}
     </PostList.Provider>
   );
